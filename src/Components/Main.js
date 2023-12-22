@@ -1,8 +1,22 @@
+import {
+  useSDK,
+} from '@metamask/sdk-react-ui';
+import Wallet from "./Wallet";
+
 function Main() {
+  const { ready } = useSDK();
+
+  if (!ready) {
+    return <div>Loading...</div>;
+  }
+
   return (
     <div>
-        <p>
-          Blockchain voting system 
+      <div>
+        <Wallet/>
+      </div>
+        <p className='header'>
+          Blockchain Voting System 
         </p>
     </div>
   );
